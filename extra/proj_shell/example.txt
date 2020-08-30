@@ -1,0 +1,4 @@
+ls
+ls -al;cat a.txt
+ls -a;ls;pwd
+ls;ls -a;ls -al;pwd;cat a.txt
