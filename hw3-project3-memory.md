@@ -197,26 +197,14 @@ if(tf->trapno==T_PGFLT){
 
 
 ## Result  
-
+>사진 누락  
 ### lazy memory allocation  
-![p3_1](/uploads/3126dedfb9b9de31638f6b06cc7c8939/p3_1.JPG)  
-
-
-![p3_2](/uploads/b0ccd3ac1b2b9bcdcb3b2fa5f03d74d2/p3_2.JPG)  
-
 - 기본적인 명령어가 제대로 실행되는 것을 볼 수 있습니다.  
-
-![p3_3](/uploads/4c81143bef8c0501337c21430fa2a245/p3_3.JPG)  
-
 - sbrk()를 호출하였을 때 인자가 양수/음수 일 때 제대로 실행되는 것을 볼 수 있습니다.  
 
 ### copy on write   
-
-![p3_5](/uploads/eb6262209c702ae2ed4d8a83a8db3584/p3_5.JPG)  
 - cprintf를 통해 메모리 할당이 제대로 일어나고 있는지 fork는 제대로 이루어지는지 확인하는 과정을 거쳤습니다.  
 - test_4를 작성하여 프로그램을 실행한 결과, write을 시도하려고 할 경우에는 new allocation이 일어나서 새로 페이지를 할당했음을 알 수 있습니다.  
-
-![p3_6](/uploads/fa0bb01dd455acac3799b3712cee890c/p3_6.JPG)  
 - fork를 여러 번 했을 때 출력 값이다.  역시 알맞게 할당이 되며 fork한 자식 프로세스가 종료가 되면 할당되었던 물리 페이지들이 다시 늘어나는 것을 알 수 있다.  
 
 
