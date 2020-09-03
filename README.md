@@ -1,5 +1,7 @@
 # ELE3021  
 operating system class  
+// gitlab에서 옮겨서 커밋 내역 누락.  
+// 코드에 아래 과제가 한번에 구현되어있음  
 
 ## Assignment  
 - ### assignment1 : shell  
