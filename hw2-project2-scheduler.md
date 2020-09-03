@@ -302,30 +302,22 @@ p->tick_quantum=0;
 * allocproc에서 위와 같이 초기화를 해주어야 한다.   
 
 ## Screen shot of the Result  
-
+> 사진 누락  
   
 ### FCFS scheduler   
 - p2_fcfs_test 실행프로그램을 실행한 결과이다.   
-# ![KakaoTalk_20180523_011841421](/uploads/23e6a4f1826160bd3ea4b20f25efc787/KakaoTalk_20180523_011841421.png)
 - FCFS scheduler는 프로세스가 생성된 순서대로 실행시킨다.   
-# ![KakaoTalk_20180523_011904363](/uploads/093152b9fe23d254a488483571b5f59d/KakaoTalk_20180523_011904363.png)
 - 가장 먼저 생성된 9번 프로세스가 주기적으로 sleep하기 때문에 9번 프로세스가 깨어있을 때에는 출력을 하고, sleep인 경우에는 10, 11, 12 13 프로세스 순서대로 실행한다.   
 ##### 2) PRIORITY scheduler  
 - p2_prior_test 실행프로그램을 실행한 결과이다.  
-![KakaoTalk_20180523_012302754](/uploads/1ce89cec893834186d39f4b120f50a20/KakaoTalk_20180523_012302754.png)
 - 우선순위가 높은 프로세스부터 실행되는 모습을 볼 수 있다.
-# ![KakaoTalk_20180523_012326724](/uploads/f29ca73cf8811493f299bbdab0624a7d/KakaoTalk_20180523_012326724.png)
 - 높은 우선순위의 프로세스부터 실행하되, 같은 우선순위의 프로세스가 존재할 경우에는 Round Robin정책에 따라 실행되는 모습을 볼 수 있다.  
-# ![KakaoTalk_20180523_012351247](/uploads/6fc1fc872e4b8e3fb3d7438e84213ee1/KakaoTalk_20180523_012351247.png)
 - 제일 우선순위가 높은 프로세스가 시간차를 두고 생성되기 때문에 그 전까지는 우선순위가 3인 프로세스가 실행되고 그 이후에는 우선순위가 높은 프로세스부터 실행된다.  
-# ![KakaoTalk_20180523_012423024](/uploads/7b0845775ccbdb8c4ac0bcea5dde2f1d/KakaoTalk_20180523_012423024.png)
 - 주기적으로 sleep하는 프로세스의 우선순위가 제일 높으므로 그 프로세스가 깨어있을 때에는 실행이 되고 sleep의 상태일 경우에는 나머지 프로세스들끼리 우선순위에 따라 실행된다.    
 ### MLFQ scheduler  
-![KakaoTalk_20180523_012657322](/uploads/8aa057a12dd1d9d99ead69e61efa37ee/KakaoTalk_20180523_012657322.png)
 - yield 프로세스의 경우에는 yield가 빈번하게 일어나기 때문에 lev0에서 계속 머무를 확률이 높고 일찍 수행되고 종료된다.  
 - 따라서 위와 같은 결과가 나타나고, compute 프로세스의 경우에는 lev0->lev1->lev2로 time quantum이 다 찰 때마다 내려가고  
   yield프로세스가 yield할 때마다 실행되며 tick이 100일 때마다 boosting에 따라 lev0으로 올라가기 때문에 lev2>lev0>lev1 순으로 값이 많은 것을 볼 수 있다.  
-# ![KakaoTalk_20180523_013058536](/uploads/9b5343ae432608d3922b5024adc00d02/KakaoTalk_20180523_013058536.png)
 - 짧은 compute 프로세스가 빨리 종료되며 lev0에서 2 tick을 시행하고 lev1에서 4tick을 시행하고 lev2에서 8tick을 시행하고 boosting이 일어난다.  
 - 따라서 lev0과 lev1의 값은 boosting이 일어나지 않을 떄보다 값이 커지며 lev0에서 2tick, lev1에서 4tick을 시행하니까 lev1의 값이 lev0의 값의 2배로 나타난다.  
 ## Trouble Shooting  
